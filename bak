@@ -1,0 +1,25 @@
+@echo 更新svn文件 ------------------
+@echo on
+call "C:\Program Files\TortoiseSVN\bin\TortoiseProc.exe" /command:update /path:"E:\08website\static\res" /closeonend:1
+
+@echo 导出svn文件 ------------------
+echo call rd /q /s  D:\aaa\res
+echo call md D:\aaa\res
+@echo 生成排除文件列表
+call echo .svn > ext.txt
+@echo 正在导出文件,请稍后。。。
+call xcopy E:\08website\static\res D:\aaa\res /e /c /y /q /exclude:ext.txt
+
+@echo 打包文件 ------------------
+call D:
+call cd D:\aaa\res
+call grunt
+
+@echo 把打包好的文件移回到svn ------------------
+call xcopy d:\aaa\res\js E:\08website\static\res\js /s /h /c /y
+call xcopy d:\aaa\res\css E:\08website\static\res\css /s /h /c /y
+
+@echo 更新提交svn文件 ------------------
+@echo on
+call "C:\Program Files\TortoiseSVN\bin\TortoiseProc.exe" /command:commit /path:"E:\08website\static\res\js*E:\08website\static\res\css" /closeonend:1
+
