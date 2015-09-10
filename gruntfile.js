@@ -1,3 +1,20 @@
+var imgPaths = getPath('image') + data[i].imgDesc;
+				var imgHeight = data[i].imgHeight;
+				var imgWidth = data[i].imgWidth;
+				var marginTOP = (300- imgHeight)/2;
+				var margiinLeft = (200- imgWidth)/2;
+				htmls += "<div style='float:left;padding-right:10px;padding-bottom:10px;'>"
+					  + "<div style='border:1px solid #d7d7d7;width:200px; height:300px;'>"
+					  + "<img style='margin-top:"+marginTOP+"px;margin-left:"+margiinLeft+"px;' width='"+imgWidth+"' height='"+imgHeight+"' src='" + imgPaths + "'/>"
+				      + "</div></br>" 
+				      + "<div style='width:200px;float:left;text-overflow:ellipsis;font-size:10px;overflow:hidden;white-space: nowrap;'>"+ data[i].tempImgPath +"</div>"
+				      +"</br><a href='javascript:delImage("
+						  + i + ")'>删除</a>" 
+				      +		"</div>";
+				
+
+
+
 /**
  * Gruntfile
  * 打包合并配置文件
