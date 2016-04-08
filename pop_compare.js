@@ -9,7 +9,9 @@ $(function () {
 
     var $popCompare = $('#pop-compare');
     var cookieName = '_contrast';
-    var tpl = '<div id="pop-compare" data-load="false" class="pop-compare"><div class="pop-wrap"><p class="pop-compare-tips"></p><div class="pop-inner"><div class="diff-hd"><ul class="tab-btns clearfix"><li class="current ui-switchable-item"><a href="javascript:;">\u5bf9\u6bd4\u680f</a></li><li class="ui-switchable-item"><a href="javascript:;">\u6700\u8fd1\u6d4f\u89c8</a></li></ul><div class="operate"><a href="javascript:;" class="hide-me">\u9690\u85cf</a></div></div><div class="diff-bd tab-cons"><div class="tab-con ui-switchable-panel"><div id="diff-items" class="diff-items clearfix"><dl class="item-empty"><dt>1</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>2</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>3</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>4</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl></div><div class="diff-operate"><a target="_blank" id="goto-contrast" href="#none" class="btn-compare-b">\u5bf9\u6bd4</a><a class="del-items">\u6e05\u7a7a\u5bf9\u6bd4\u680f</a></div></div><div class="tab-con ui-switchable-panel tab-scroll" style="display:none;"><div class="scroll-item ui-switchable-panel-body clearfix"><span id="sc-prev" class="scroll-btn sb-prev">&lt;</span><span id="sc-next" class="scroll-btn sb-next">&gt;</span><div class="scroll-con clearfix"><ul id="scroll-con-inner" class="ui-switchable-panel-main"><p class="scroll-loading ac">\u8f7d\u5165\u4e2d...</p></ul></div></div></div></div></div></div></div>';
+    //var tpl = '<div id="pop-compare" data-load="false" class="pop-compare"><div class="pop-wrap"><p class="pop-compare-tips"></p><div class="pop-inner"><div class="diff-hd"><ul class="tab-btns clearfix"><li class="current ui-switchable-item"><a href="javascript:;">\u5bf9\u6bd4\u680f</a></li><li class="ui-switchable-item"><a href="javascript:;">\u6700\u8fd1\u6d4f\u89c8</a></li></ul><div class="operate"><a href="javascript:;" class="hide-me">\u9690\u85cf</a></div></div><div class="diff-bd tab-cons"><div class="tab-con ui-switchable-panel"><div id="diff-items" class="diff-items clearfix"><dl class="item-empty"><dt>1</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>2</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>3</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>4</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl></div><div class="diff-operate"><a target="_blank" id="goto-contrast" href="#none" class="btn-compare-b">\u5bf9\u6bd4</a><a class="del-items">\u6e05\u7a7a\u5bf9\u6bd4\u680f</a></div></div><div class="tab-con ui-switchable-panel tab-scroll" style="display:none;"><div class="scroll-item ui-switchable-panel-body clearfix"><span id="sc-prev" class="scroll-btn sb-prev">&lt;</span><span id="sc-next" class="scroll-btn sb-next">&gt;</span><div class="scroll-con clearfix"><ul id="scroll-con-inner" class="ui-switchable-panel-main"><p class="scroll-loading ac">\u8f7d\u5165\u4e2d...</p></ul></div></div></div></div></div></div></div>';
+
+    var tpl = '<div id="pop-compare" data-load="false" class="pop-compare"><div class="pop-wrap"><p class="pop-compare-tips"></p><div class="pop-inner"><div class="diff-hd"><ul class="tab-btns clearfix"><li class="current ui-switchable-item"><a href="javascript:;">\u5bf9\u6bd4\u680f</a></li><li class="ui-switchable-item"><a href="javascript:;">\u6700\u8fd1\u6d4f\u89c8</a></li></ul><div class="operate"><a href="javascript:;" class="hide-me">\u9690\u85cf</a></div></div><div class="diff-bd tab-cons"><div class="tab-con ui-switchable-panel"><div id="diff-items" class="diff-items clearfix"><dl class="item-empty"><dt>1</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>2</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>3</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>4</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl></div><div class="diff-operate"><a target="_blank" id="goto-contrast" href="#none" class="btn-compare-b">\u5bf9\u6bd4</a><a class="del-items">\u6e05\u7a7a\u5bf9\u6bd4\u680f</a></div></div><div class="tab-con ui-switchable-panel tab-scroll" style="display:none;"><div class="scroll-item ui-switchable-panel-body clearfix"><span id="sc-prev" class="scroll-btn sb-prev">&lt;</span><span id="sc-next" class="scroll-btn sb-next">&gt;</span><div class="scroll-con clearfix"><ul id="scroll-con-inner" class="ui-switchable-panel-main"> <li id="rec_item_4207" class="ui-switchable-panel ui-switchable-panel-selected" data-push="1" style="float: left; display: list-item;"> <div class="rec_item_wrap"> <div class="dt"> <a target="_blank" href="http://item.jd.com/1290795.html"><img src="//img10.360buyimg.com/n5/jfs/t724/74/1501768941/42484/9d2c750f/5541fe2eNa0009357.jpg" width="50" height="50"></a> </div> <div class="dd"> <a target="_blank" href="http://item.jd.com/1290795.html" class="diff-item-name">联想 (lenovo) A588t 荣耀金 移动3G手机 双卡双待</a> <div class="btns clb"><span class="p-price"><strong class="J-p-4207">￥475.00</strong></span> <a id="recent_4207" data-recent="true" data-sku="4207" skuid="4207" class="J_contrast btn-compare btn-compare-s"><span>对比</span></a></div></div></div></li></ul></div></div></div></div></div></div></div>';
     var itemStr = '<dl class="hasItem" id="cmp_item_${sku}" fore="${ind}"><dt><a target="_blank" href="http://item.jd.com/${data.goodsId}.html"><img src="${data.picUrl}" width="50" height="50"></a>  </dt><dd><a target="_blank" class="diff-item-name" href="http://www.360shouji.com/goods/${data.goodsId}.html">${data.saleName}</a><span class="p-price"><strong class="J-p-${data.goodsId}"></strong><a class="del-comp-item" skuid="${data.goodsId}">\u5220\u9664</a></span>  </dd></dl>';
     $(document).on('click', '.tab-btns li', function () {
         window.console && console.log('123');
@@ -77,7 +79,7 @@ $(function () {
             //            $("#pop-compare").attr("data-load", "true")
             //    }
             //})
-            var dd = [{"goodsId":"3427","price":1299,"picUrl":"//res.360shouji.com/img/4207/9476/9476_220.jpg","saleName":"360奇酷手机青春版（全网通3G内存版）"},{"goodsId":"4207","price":1299,"picUrl":"//res.360shouji.com/img/4207/9476/9476_220.jpg","saleName":"360奇酷手机青春版（全网通3G内存版）"}];
+            var dd = [{"goodsId":"3427","price":1299,"picUrl":"//res.360shouji.com/img/4207/9476/9476_220.jpg","saleName":"3427手机青春版（全网通3G内存版）"},{"goodsId":"4207","price":1299,"picUrl":"//res.360shouji.com/img/4207/9476/9476_220.jpg","saleName":"4207手机青春版（全网通3G内存版）"}];
             var e = $("#diff-items dl").index($("#diff-items").find(".item-empty").eq(0));
             var g = {
                 data: a == 4207 ? dd[1]: dd[0],
@@ -92,8 +94,8 @@ $(function () {
             btnStyle(a, "set"),
                 createCookie(cookieName + "_status", "show", 30, "/;domain=" + document.domain),
             "function" == typeof b && b(),
-                setContrastBtn("add"),
-                $("#pop-compare").attr("data-load", "true")
+                setContrastBtn("add");
+                //$("#pop-compare").attr("data-load", "true")
         }
     }
 
@@ -101,11 +103,11 @@ $(function () {
         window.console && console.log('showPopWin',a);
         var c = $("#pop-compare");
         $("#pop-compare").length < 1 && $("body").append(tpl);
-        $("#diff-items .hasItem").length < 1 && (readCookie(cookieName) ? loadExistList(function() {
-               // hasCookie(a) ? delContrastItem(a) : setContrastItem(a)
-                //setContrastItem(a)
-            }
-        ) : console.log(123));
+        //$("#diff-items .hasItem").length < 1 && (readCookie(cookieName) ? loadExistList(function() {
+        //        //hasCookie(a) ? delContrastItem(a) : setContrastItem(a)
+        //        setContrastItem(a)
+        //    }
+        //) : setContrastItem(a));
         //    "true" == $("#pop-compare").attr("data-load") ? ($("#pop-compare").show(),
         //        c.attr("data-load", "true"),
         //$("#pop-compare").animate({
@@ -115,11 +117,11 @@ $(function () {
         //    bottom: 0
         //}),
         createCookie(cookieName + "_status", "show", 30, "/;domain=" + document.domain);
-        //var arr = a.split('.');
-        //for(var i=0;i<arr.length;i++){
-        //    window.console && console.log('arr i',arr[i]);
-        //    setContrastItem(arr[i]);
-        //}
+        var arr = a.split('.');
+        for(var i=0;i<arr.length;i++){
+            window.console && console.log('arr i',arr[i]);
+            setContrastItem(arr[i]);
+        }
         //setContrastItem(a);
         $("#pop-compare").show().animate({
             bottom: 0
@@ -168,7 +170,7 @@ $(function () {
             return false;
         }
 
-        $("#goto-contrast").attr("href", "http://localhost:63342/WebContent/about/compare.html?"+a);
+        $("#goto-contrast").attr("href", "http://localhost:63342/web/newweb/res/template/360os/compare.html?"+a);
     });
 
     $(document).on('click', ".hide-me", function () {
@@ -222,7 +224,6 @@ $(function () {
         var b = readCookie(cookieName) || "";
         return skuArr = b.split("."),
         !hasCookie(a) && skuArr.length < 4 && (b ? (skuArr.push(a),
-            window.console && console.log('skuArr.join(".")',skuArr.join("."),b),
             createCookie(cookieName, skuArr.join("."), 1, "/;domain=" + document.domain)) : createCookie(cookieName, a, 1, "/;domain=" + document.domain));
     }
 
