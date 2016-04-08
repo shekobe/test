@@ -1,0 +1,1186 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <!--响应终端宽度-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta content="telephone=no" name="format-detection">
+        <meta content="black" name="apple-mobile-web-app-status-bar-style">
+        <meta name="viewport" content="width=device-width,user-scalable=yes"/>
+        <title>商品比较--360手机商城</title>
+        <meta name="keywords" content="360手机，奇酷手机，大神手机，奇酷商城，奇酷官网，360 f4，奇酷社区，360手机助手，360手机安全卫士，360手机游戏">
+        <meta name="description" content="360手机商城是360旗下的手机业务电子商务平台官网，提供正品奇酷手机、大神手机、360 f4系列、奇酷旗舰版、奇酷青春版、奇酷极客版、大神Note3、大神Note3高配版、360智能硬件等产品的预约和购买，官方正品，全国联保！">
+        <link rel="stylesheet" type="text/css" href="http://css.360shouji.com/css/build/common.min.css">
+        <link rel="stylesheet" type="text/css" href="./compare.css">
+        <link type="image/x-icon" href="http://res.360shouji.com/favicon.ico" rel="shortcut icon">
+        <!--<script type="text/javascript" src="http://js.360shouji.com/js/base/require.js"></script>-->
+        <script src="http://js.360shouji.com/js/lib/jquery-1.8.2.min.js"></script>
+
+    </head>
+    <body class="root61">
+        <div id="mod_header"></div>
+        <div class="b" style="overflow:hidden">
+            <div class="w" id="pcomprare">
+                <ul class="tab">
+                    <li class="curr">基本信息对比</li>
+                </ul>
+                <div class="tabcon">
+                    <table class="tb-1 j_goods">
+                    </table>
+                    <table class="tb-1 tb_compare j_zhuti">
+
+                    </table>
+                    <table class="tb-1 tb_compare j_xianshi">
+                    </table>
+                    <table class="tb-1 tb_compare j_wangluo">
+
+                    </table>
+                    <table class="tb-1 tb_compare j_cunchu">
+
+                    </table>
+                    <table class="tb-1 tb_compare j_ylgl">
+
+                    </table>
+                    <table class="tb-1 tb_compare j_sxgl">
+
+                    </table>
+                    <table class="tb-1 tb_compare j_csgl">
+
+                    </table>
+                    <table class="tb-1 tb_compare j_gyq">
+
+                    </table>
+                    <table class="tb-1 tb_compare j_qt">
+
+                    </table>
+
+
+                </div>
+
+                <!--<div class="mc tabcon hide">2</div>-->
+            </div>
+
+        </div>
+        <div id="mod_footer" class="mod_footer">
+        </div>
+        <script id="temp_goods" type="text/html">
+            <tbody>
+            <tr class="" style="background-color: rgb(255, 255, 255);">
+                <th>商品图片</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow"><img width="100" height="100" src="//res.360shouji.com/img/4555/11544/11544_540.jpg"></a>
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+
+
+
+            </tr>
+            <tr class="p-price">
+                <th>价格</th>
+                {{each listLen as value i}}
+                <td>
+                    <strong>
+                    {{if list[i]}}
+                        ￥{{list[i].price}}
+                    {{/if}}
+                    </strong>
+                </td>
+                {{/each}}
+
+
+            </tr>
+
+            </tbody>
+            </script>
+        <script id="temp_zhuti" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">主体</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="">
+                <th>品牌</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'品牌@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>*型号</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*型号@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>*颜色</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*颜色@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>*上市时间</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*上市时间@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            <tr class="">
+                <th>*输入方式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*输入方式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>*操作系统</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*操作系统@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>*运营商标志或内容</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*运营商标志或内容@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>用户界面</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'用户界面@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>CPU型号</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'CPU型号@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>CPU核数</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'CPU核数@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr class="">
+                <th>CPU频率</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'CPU频率@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+
+
+            </tbody>
+        </script>
+        <script id="temp_xianshi" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">显示</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>*屏幕尺寸</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*屏幕尺寸@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*触摸屏</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*触摸屏@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>屏幕色彩</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'屏幕色彩@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>分辨率</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'分辨率@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>屏幕材质</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'屏幕材质@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            <tr>
+                <th>超大字体</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'超大字体@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+
+
+            </tbody>
+        </script>
+        <script id="temp_wangluo" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">网络</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>4G网络制式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'4G网络制式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*3G网络制式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*3G网络制式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*2G网络制式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*2G网络制式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>网络制式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'网络制式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>网络频率</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'网络频率@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>数据业务</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'数据业务@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>浏览器</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'浏览器@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            </tbody>
+        </script>
+        <script id="temp_cunchu" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">存储</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>运行内存（RAM）</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'运行内存（RAM）@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*机身内存（ROM）</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*机身内存（ROM）@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*储存卡类型</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*储存卡类型@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+
+            <tr>
+                <th>最大存储扩展</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'最大存储扩展@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            </tbody>
+            </script>
+        <script id="temp_ylgl" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">娱乐功能</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>视频解码</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'视频解码@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>视频文件格式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'视频文件格式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>音频解码</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'音频解码@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>音频文件格式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'音频文件格式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>图片解码</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'图片解码@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>图片格式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'图片格式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>录音</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'录音@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </tbody>
+            </script>
+        <script id="temp_sxgl" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">摄像功能</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>*后置摄像头</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*后置摄像头@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*前置摄像头</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*前置摄像头@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>传感器类型</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'传感器类型@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>闪光灯</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'闪光灯@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>视频拍摄</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'视频拍摄@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>防抖模式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'防抖模式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>变焦模式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'变焦模式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>拍摄模式</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'拍摄模式@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>自动对焦</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'自动对焦@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>照片分辨率</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'照片分辨率@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            </tbody>
+            </script>
+        <script id="temp_csgl" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">传输功能</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>*Wi-Fi</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'照片分辨率@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*蓝牙</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*蓝牙@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>WIFI热点</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'WIFI热点@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>OTG</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'OTG@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>NFC(近场通讯)</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'NFC(近场通讯)@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            <tr>
+                <th>红外</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'红外@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            <tr>
+                <th>USB</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'USB@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>GPS</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'GPS@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </tbody>
+            </script>
+        <script id="temp_gyq" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">感应器</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>*GPS模块</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*GPS模块@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>重力感应器</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'重力感应器@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>光线传感器</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'光线传感器@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>接近传感器</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'接近传感器@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>电子罗盘</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'电子罗盘@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>陀螺仪</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'陀螺仪@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </tbody>
+            </script>
+        <script id="temp_qt" type="text/html">
+            <thead title="点击这里折叠/展开" style="cursor: pointer;">
+            <tr>
+                <th>
+                    <div class="">其他</div>
+                </th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    <div>
+                        <a href="//www.360shouji.com/goods/{{list[i].goodsId}}.html" rel="nofollow">
+
+                            {{list[i].saleName}}
+                        </a>
+                    </div>
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>*电池类型</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*电池类型@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*电池容量</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*电池容量@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*电池更换</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*电池更换@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>理论待机时间</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'理论待机时间@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>理论使用时间</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'理论使用时间@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>数据线接口</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'数据线接口@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>耳机接口</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'耳机接口@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*机身尺寸（mm）</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*机身尺寸（mm）@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>*机身重量（g）</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*机身重量（g）@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                <th>机身材质</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'机身材质@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            <tr>
+                <th>*SIM卡类型</th>
+                {{each listLen as value i}}
+                <td>
+                    {{if list[i]}}
+                    {{each list[i].Paras as v}}
+                    {{v.name | helperName:'*SIM卡类型@'+v.value}}
+                    {{/each}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+
+            </tbody>
+            </script>
+        <script src="http://js.360shouji.com/js/base/template.js"></script>
+        <script src="./trim_path.js"></script>
+        <script src="./compare.js"></script>
+        <!--<script type="text/javascript" src="http://js.360shouji.com/js/build/goodsCommentList.basemin.js"></script>-->
+        <!--<script>(function (i, s, o, g, r, a, m) {-->
+            <!--i['GoogleAnalyticsObject'] = r;-->
+            <!--i[r] = i[r] || function () {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();-->
+            <!--a = s.createElement(o), m = s.getElementsByTagName(o)[0];-->
+            <!--a.async = 1;-->
+            <!--a.src = g;-->
+            <!--m.parentNode.insertBefore(a, m)-->
+        <!--})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');-->
+        <!--ga('create', 'UA-74233494-1', 'auto');-->
+        <!--ga('send', 'pageview');</script>-->
+    </body>
+</html>
