@@ -204,7 +204,9 @@
 
 #pop-compare .diff-items dd,#pop-compare .scroll-con dd,#scroll-con-inner .dd {
     float: left;
-    width: 140px
+    width: 140px;
+    font-size: 12px;
+    text-indent:0;
 }
 
 #pop-compare .item-empty dt {
@@ -402,4 +404,10 @@ a.compare-active {
 
 * html #pop-compare .pop-wrap {
     position: static
+}
+
+.p-price strong {
+    color: #e4393c;
+    font-size: 14px;
+    font-family: Verdana;
 }
