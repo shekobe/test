@@ -341,7 +341,8 @@ $(function () {
         var a = $("#diff-items")
             , b = [];
         a.find(".hasItem").each(function() {
-                b.push($(this))
+                var t = $(this);
+                b.push('<dl class="hasItem" id="'+ t.attr('id')+'" fore="2">'+t.html()+'</dl>')
             }
         ),
             a.html("");
