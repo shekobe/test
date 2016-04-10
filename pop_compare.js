@@ -2,17 +2,19 @@
  * Created by suguiyun on 2016/4/7.
  */
 
-//todo 初始化对比栏时，数据渲染有问题，只渲染出一个
+
 
 $(function () {
     window.console && console.log('pop-compare.js');
 
     var $popCompare = $('#pop-compare');
     var cookieName = '_contrast';
-    //var tpl = '<div id="pop-compare" data-load="false" class="pop-compare"><div class="pop-wrap"><p class="pop-compare-tips"></p><div class="pop-inner"><div class="diff-hd"><ul class="tab-btns clearfix"><li class="current ui-switchable-item"><a href="javascript:;">\u5bf9\u6bd4\u680f</a></li><li class="ui-switchable-item"><a href="javascript:;">\u6700\u8fd1\u6d4f\u89c8</a></li></ul><div class="operate"><a href="javascript:;" class="hide-me">\u9690\u85cf</a></div></div><div class="diff-bd tab-cons"><div class="tab-con ui-switchable-panel"><div id="diff-items" class="diff-items clearfix"><dl class="item-empty"><dt>1</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>2</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>3</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>4</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl></div><div class="diff-operate"><a target="_blank" id="goto-contrast" href="#none" class="btn-compare-b">\u5bf9\u6bd4</a><a class="del-items">\u6e05\u7a7a\u5bf9\u6bd4\u680f</a></div></div><div class="tab-con ui-switchable-panel tab-scroll" style="display:none;"><div class="scroll-item ui-switchable-panel-body clearfix"><span id="sc-prev" class="scroll-btn sb-prev">&lt;</span><span id="sc-next" class="scroll-btn sb-next">&gt;</span><div class="scroll-con clearfix"><ul id="scroll-con-inner" class="ui-switchable-panel-main"><p class="scroll-loading ac">\u8f7d\u5165\u4e2d...</p></ul></div></div></div></div></div></div></div>';
+    var tpl = '<div id="pop-compare" data-load="false" class="pop-compare"><div class="pop-wrap"><p class="pop-compare-tips"></p><div class="pop-inner"><div class="diff-hd"><ul class="tab-btns clearfix"><li class="current ui-switchable-item"><a href="javascript:;">\u5bf9\u6bd4\u680f</a></li><li class="ui-switchable-item"><a href="javascript:;">\u6700\u8fd1\u6d4f\u89c8</a></li></ul><div class="operate"><a href="javascript:;" class="hide-me">\u9690\u85cf</a></div></div><div class="diff-bd tab-cons"><div class="tab-con ui-switchable-panel"><div id="diff-items" class="diff-items clearfix"><dl class="item-empty"><dt>1</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>2</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>3</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>4</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl></div><div class="diff-operate"><a target="_blank" id="goto-contrast" href="#none" class="btn-compare-b">\u5bf9\u6bd4</a><a class="del-items">\u6e05\u7a7a\u5bf9\u6bd4\u680f</a></div></div><div class="tab-con ui-switchable-panel tab-scroll" style="display:none;"><div class="scroll-item ui-switchable-panel-body clearfix"><span id="sc-prev" class="scroll-btn sb-prev">&lt;</span><span id="sc-next" class="scroll-btn sb-next">&gt;</span><div class="scroll-con clearfix"><ul id="scroll-con-inner" class="ui-switchable-panel-main"><p class="scroll-loading ac">\u8f7d\u5165\u4e2d...</p></ul></div></div></div></div></div></div></div>';
 
-    var tpl = '<div id="pop-compare" data-load="false" class="pop-compare"><div class="pop-wrap"><p class="pop-compare-tips"></p><div class="pop-inner"><div class="diff-hd"><ul class="tab-btns clearfix"><li class="current ui-switchable-item"><a href="javascript:;">\u5bf9\u6bd4\u680f</a></li><li class="ui-switchable-item"><a href="javascript:;">\u6700\u8fd1\u6d4f\u89c8</a></li></ul><div class="operate"><a href="javascript:;" class="hide-me">\u9690\u85cf</a></div></div><div class="diff-bd tab-cons"><div class="tab-con ui-switchable-panel"><div id="diff-items" class="diff-items clearfix"><dl class="item-empty"><dt>1</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>2</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>3</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>4</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl></div><div class="diff-operate"><a target="_blank" id="goto-contrast" href="#none" class="btn-compare-b">\u5bf9\u6bd4</a><a class="del-items">\u6e05\u7a7a\u5bf9\u6bd4\u680f</a></div></div><div class="tab-con ui-switchable-panel tab-scroll" style="display:none;"><div class="scroll-item ui-switchable-panel-body clearfix"><span id="sc-prev" class="scroll-btn sb-prev">&lt;</span><span id="sc-next" class="scroll-btn sb-next">&gt;</span><div class="scroll-con clearfix"><ul id="scroll-con-inner" class="ui-switchable-panel-main"> <li id="rec_item_4207" class="ui-switchable-panel ui-switchable-panel-selected" data-push="1" style="float: left; display: list-item;"> <div class="rec_item_wrap"> <div class="dt"> <a target="_blank" href="http://item.jd.com/1290795.html"><img src="//img10.360buyimg.com/n5/jfs/t724/74/1501768941/42484/9d2c750f/5541fe2eNa0009357.jpg" width="50" height="50"></a> </div> <div class="dd"> <a target="_blank" href="http://item.jd.com/1290795.html" class="diff-item-name">联想 (lenovo) A588t 荣耀金 移动3G手机 双卡双待</a> <div class="btns clb"><span class="p-price"><strong class="J-p-4207">￥475.00</strong></span> <a id="recent_4207" data-recent="true" data-sku="4207" skuid="4207" class="J_contrast btn-compare btn-compare-s"><span>对比</span></a></div></div></div></li></ul></div></div></div></div></div></div></div>';
-    var itemStr = '<dl class="hasItem" id="cmp_item_${sku}" fore="${ind}"><dt><a target="_blank" href="http://item.jd.com/${data.goodsId}.html"><img src="${data.picUrl}" width="50" height="50"></a>  </dt><dd><a target="_blank" class="diff-item-name" href="http://www.360shouji.com/goods/${data.goodsId}.html">${data.saleName}</a><span class="p-price"><strong class="J-p-${data.goodsId}"></strong><a class="del-comp-item" skuid="${data.goodsId}">\u5220\u9664</a></span>  </dd></dl>';
+    //var tpl = '<div id="pop-compare" data-load="false" class="pop-compare"><div class="pop-wrap"><p class="pop-compare-tips"></p><div class="pop-inner"><div class="diff-hd"><ul class="tab-btns clearfix"><li class="current ui-switchable-item"><a href="javascript:;">\u5bf9\u6bd4\u680f</a></li><li class="ui-switchable-item"><a href="javascript:;">\u6700\u8fd1\u6d4f\u89c8</a></li></ul><div class="operate"><a href="javascript:;" class="hide-me">\u9690\u85cf</a></div></div><div class="diff-bd tab-cons"><div class="tab-con ui-switchable-panel"><div id="diff-items" class="diff-items clearfix"><dl class="item-empty"><dt>1</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>2</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>3</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl><dl class="item-empty"><dt>4</dt><dd>\u60a8\u8fd8\u53ef\u4ee5\u7ee7\u7eed\u6dfb\u52a0</dd></dl></div><div class="diff-operate"><a target="_blank" id="goto-contrast" href="#none" class="btn-compare-b">\u5bf9\u6bd4</a><a class="del-items">\u6e05\u7a7a\u5bf9\u6bd4\u680f</a></div></div><div class="tab-con ui-switchable-panel tab-scroll" style="display:none;"><div class="scroll-item ui-switchable-panel-body clearfix"><span id="sc-prev" class="scroll-btn sb-prev">&lt;</span><span id="sc-next" class="scroll-btn sb-next">&gt;</span><div class="scroll-con clearfix"><ul id="scroll-con-inner" class="ui-switchable-panel-main"> <li id="rec_item_4207" class="ui-switchable-panel ui-switchable-panel-selected" data-push="1" style="float: left; display: list-item;"> <div class="rec_item_wrap"> <div class="dt"> <a target="_blank" href="http://item.jd.com/1290795.html"><img src="//img10.360buyimg.com/n5/jfs/t724/74/1501768941/42484/9d2c750f/5541fe2eNa0009357.jpg" width="50" height="50"></a> </div> <div class="dd"> <a target="_blank" href="http://item.jd.com/1290795.html" class="diff-item-name">联想 (lenovo) A588t 荣耀金 移动3G手机 双卡双待</a> <div class="btns clb"><span class="p-price"><strong class="J-p-4207">￥475.00</strong></span> <a id="recent_4207" data-recent="true" data-sku="4207" skuid="4207" class="J_contrast btn-compare btn-compare-s"><span>对比</span></a></div></div></div></li></ul></div></div></div></div></div></div></div>';
+    var itemStr = '<dl class="hasItem" id="cmp_item_${sku}" fore="${ind}"><dt><a target="_blank" href="http://item.jd.com/${data.goodsId}.html"><img src="${data.picUrl}" width="50" height="50"></a>  </dt><dd><a target="_blank" class="diff-item-name" href="http://www.360shouji.com/goods/${data.goodsId}.html">${data.saleName}</a><span class="p-price"><strong class="J-p-${data.goodsId}">￥${data.price}</strong><a class="del-comp-item" skuid="${data.goodsId}">\u5220\u9664</a></span>  </dd></dl>';
+  var recentItem = '{for item in data}<li id="rec_item_${item.id}" data-tab="item""><div class="rec_item_wrap">  <div class="dt">      <a target="_blank" href="//www.360shouji.com/goods/${item.id}.html"><img src="${item.img}" width="50" height="50"></a>  </div>  <div class="dd">      <a target="_blank" href="//www.360shouji.com/goods/${item.id}.html" class="diff-item-name">${item.name}</a>      <div class="btns clb">          <span class="p-price"><strong class="J-p-${item.id}">￥${item.price}</strong></span>          <a id="recent_${item.id}" data-recent="true" data-sku="${item.id}" skuid="${item.id}" class="J_contrast btn-compare btn-compare-s"><span>\u5bf9\u6bd4</span></a>      </div>  </div></div></li>{/for}';
+
     $(document).on('click', '.tab-btns li', function () {
         window.console && console.log('123');
         var t = $(this);
@@ -20,6 +22,9 @@ $(function () {
         t.addClass('current');
         var index = t.index();
         var $div = $('#pop-compare').find('.diff-bd .tab-con').eq(index);
+        if(index == 1){
+            getRecent();
+        }
         $div.siblings().hide();
         $div.show();
 
@@ -27,21 +32,12 @@ $(function () {
     init();
     function init() {
         window.console && console.log(readCookie(cookieName + "_status"));
-        if (readCookie(cookieName + "_status") == 'side') {
-            hidePopWin();
-        }
+
         if (readCookie(cookieName + "_status") == 'show') {
-            showPopWin(readCookie(cookieName));
+            showPopWin(null,1);
         }
     }
 
-    function loadExistList(a){
-        var b = readCookie(cookieName) || "";
-        b = b.split(".");
-        for (var c = 0; c < b.length; c++)
-            setContrastItem(b[c]),
-                c + 1 == b.length ? setContrastItem(b[c], a) : setContrastItem(b[c])
-    }
 
     function hasCookie(a){
         return a ? new RegExp(a).test(readCookie(cookieName)) : void 0
@@ -79,10 +75,12 @@ $(function () {
             //            $("#pop-compare").attr("data-load", "true")
             //    }
             //})
-            var dd = [{"goodsId":"3427","price":1299,"picUrl":"//res.360shouji.com/img/4207/9476/9476_220.jpg","saleName":"3427手机青春版（全网通3G内存版）"},{"goodsId":"4207","price":1299,"picUrl":"//res.360shouji.com/img/4207/9476/9476_220.jpg","saleName":"4207手机青春版（全网通3G内存版）"}];
+            var dd = [{"goodsId":"3427","price":1299,"picUrl":"//res.360shouji.com/img/4207/9476/9476_220.jpg","saleName":"3427手机青春版（全网通3G内存版）"}];
+            dd[0].goodsId = a;
+            dd[0].saleName = a+"手机青春版（全网通3G内存版）";
             var e = $("#diff-items dl").index($("#diff-items").find(".item-empty").eq(0));
             var g = {
-                data: a == 4207 ? dd[1]: dd[0],
+                data: dd[0],
                 sku: a,
                 ind: e
             };
@@ -99,17 +97,25 @@ $(function () {
         }
     }
 
-    function showPopWin(a) {
+    function loadExistList(t){
+        var e = readCookie(cookieName) || "";
+        e = e.split(".");
+        for (var i = 0; i < e.length; i++)
+            setContrastItem(e[i]),
+                i + 1 == e.length ? setContrastItem(e[i], t) : setContrastItem(e[i])
+    }
+
+    function showPopWin(a,b) {
         window.console && console.log('showPopWin',a);
         var c = $("#pop-compare");
         $("#pop-compare").length < 1 && $("body").append(tpl);
-        //$("#diff-items .hasItem").length < 1 && (readCookie(cookieName) ? loadExistList(function() {
-        //        //hasCookie(a) ? delContrastItem(a) : setContrastItem(a)
-        //        setContrastItem(a)
-        //    }
-        //) : setContrastItem(a));
-        //    "true" == $("#pop-compare").attr("data-load") ? ($("#pop-compare").show(),
-        //        c.attr("data-load", "true"),
+        $("#diff-items .hasItem").length < 1 && (readCookie(cookieName) ? loadExistList(function() {
+                //hasCookie(a) ? delContrastItem(a) : setContrastItem(a)
+                setContrastItem(a)
+            }
+        ) : setContrastItem(a));
+            //"true" == $("#pop-compare").attr("data-load") ? ($("#pop-compare").show(),
+            //    c.attr("data-load", "true"),
         //$("#pop-compare").animate({
         //    bottom: 0
         //}, 100)) : ("side" == readCookie(cookieName + "_status") && ($("#pop-compare").show().attr("data-load", "true"),
@@ -117,17 +123,45 @@ $(function () {
         //    bottom: 0
         //}),
         createCookie(cookieName + "_status", "show", 30, "/;domain=" + document.domain);
-        var arr = a.split('.');
-        for(var i=0;i<arr.length;i++){
-            window.console && console.log('arr i',arr[i]);
-            setContrastItem(arr[i]);
+        setContrastItem(a);
+        if(b){
+            $("#pop-compare").show().css({
+                bottom: 0
+            });
+        }else{
+            $("#pop-compare").show().animate({
+                bottom: 0
+            });
         }
-        //setContrastItem(a);
-        $("#pop-compare").show().animate({
-            bottom: 0
-        });
+
+
+    }
+    function getRecent(){
+        var tempArr = [
+            {"id":"4207","img":"http://res.360shouji.com/img/4206/9647/9647_540.jpg","name":"4207奇酷青春版全网通2G内存版(智铂银)","price":"1199"},
+            {"id":"4233","img":"http://res.360shouji.com/img/4233/10858/10858_540.jpg","name":"4233奇酷青春版全网通2G内存版(流光金)","price":"1199"},
+            {"id":"4327","img":"http://res.360shouji.com/img/4384/11077/11077_540.jpg","name":"4327奇酷青春版移动定制版","price":"999"},
+            {"id":"4146","img":"http://res.360shouji.com/img/4146/9351/9351_540.jpg","name":"4146奇酷青春版(移动联通双4G)","price":"999"},
+            {"id":"4892","img":"http://res.360shouji.com/img/4892/11920/11920_540.jpg","name":"4892f4高配版玫瑰金","price":"799"},
+            {"id":"3920","img":"http://res.360shouji.com/img/3920/8423/8423_540.jpg","name":"3920Note3 移动版(魔力白)","price":"799"},
+            {"id":"4026","img":"http://res.360shouji.com/img/4026/8450/8450_540.jpg","name":"4026移动电源","price":"69"},
+            {"id":"4760","img":"http://res.360shouji.com/img/4760/11778/11778_540.jpg","name":"4760f4标准版魔力白","price":"599"}];
+        var arr = localStorage.getItem("viewgoods") || tempArr;
+
+        $("#scroll-con-inner p").length > 0 && $("#scroll-con-inner p").remove();
+        var obj = {data:arr};
+        $("#scroll-con-inner").append(recentItem.process(obj));
+        var a = readCookie(cookieName);
+        if (a) {
+            for (var s = a.split("."), o = s.length, n = 0; o > n; n++) {
+                $("#rec_item_" + s[n]).length > 0 && btnStyle(s[n], "set");
+            }
+        }
+
+
     }
     function switchTab(a){
+
         $(".diff-hd li").eq(a).trigger("click");
     }
     function hidePopWin() {
@@ -170,7 +204,7 @@ $(function () {
             return false;
         }
 
-        $("#goto-contrast").attr("href", "http://localhost:63342/web/newweb/res/template/360os/compare.html?"+a);
+        $("#goto-contrast").attr("href", "http://localhost:63342/web/newweb/res/template/360os/compare.html?"+ b.join(','));
     });
 
     $(document).on('click', ".hide-me", function () {
@@ -186,8 +220,39 @@ $(function () {
         $(this).find(".del-comp-item").css("visibility", "hidden");
     });
 
-    $(document).on('click', ".hasItem .del-comp-item", function () {
+
+
+    $(document).on('click', "#sc-prev", function () {
+        imgSroll(1);
+    });
+
+    $(document).on('click', "#sc-next", function () {
+        imgSroll(-1);
+    });
+
+    function imgSroll(flag){
+        var $sci = $('#scroll-con-inner');
+        var len = $sci.find('li').length;
+        if(len < 5){
+            return;
+        }
+
+        if(parseInt($sci.css('left')) == 0){
+            $sci.animate({
+                left: -905
+            });
+        }else{
+            $sci.animate({
+                left: 0
+            });
+        }
+
+
+    }
+
+    $(document).on('click', ".del-comp-item", function () {
         var a = $(this).attr("skuid");
+        window.console && console.log('del',a);
         delContrastItem(a);
     });
 
